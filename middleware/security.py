@@ -167,6 +167,7 @@ class RequestValidationMiddleware(BaseHTTPMiddleware):
         """Validate API path."""
         valid_paths = [
             "/auth/", "/health", "/brand/", "/organization/", 
-            "/project/", "/scheduled-posts/", "/users/", "/oauth/"
+            "/project/", "/scheduled-posts/", "/users/", "/oauth/",
+            "/api/reviews/", "/api/assets/", "/api/", "/docs", "/openapi.json"
         ]
         return any(path.startswith(valid_path) for valid_path in valid_paths)

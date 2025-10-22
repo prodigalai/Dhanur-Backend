@@ -468,37 +468,65 @@ async def update_content_status(
     request: StatusUpdateRequest,
     current_user: dict = Depends(get_current_user)
 ):
-    """Update the status of content."""
+    """Update the status of content (audio approval/rejection)."""
     try:
         user_id = current_user.get('user_id', current_user.get('id', 'unknown'))
         
-        # Update content status
-        content_collection = mongodb_service.get_collection('content_reviews')
-        result = content_collection.update_one(
-            {"content_id": content_id, "uploaded_by": user_id},
-            {
-                "$set": {
+        # content_id is actually audio_id from audio_campaign_assignments
+        # Update audio assignment status
+        assignments_collection = mongodb_service.get_collection('audio_campaign_assignments')
+        
+        # First try to find by audio_id
+        assignment = assignments_collection.find_one({"audio_id": content_id})
+        
+        if assignment:
+            # Update assignment status
+            result = assignments_collection.update_one(
+                {"audio_id": content_id},
+                {
+                    "$set": {
+                        "review_status": request.status,
+                        "review_notes": request.notes,
+                        "reviewed_by": user_id,
+                        "reviewed_at": datetime.utcnow()
+                    }
+                }
+            )
+            
+            return {
+                "success": True,
+                "message": "Content status updated successfully",
+                "data": {
+                    "contentId": content_id,
                     "status": request.status,
-                    "status_notes": request.notes,
-                    "status_updated_by": user_id,
-                    "status_updated_at": datetime.utcnow()
+                    "notes": request.notes,
+                    "updatedAt": datetime.utcnow().isoformat()
                 }
             }
-        )
-        
-        if result.matched_count == 0:
-            raise HTTPException(status_code=404, detail="Content not found")
-        
-        return {
-            "success": True,
-            "message": "Content status updated successfully",
-            "data": {
-                "contentId": content_id,
+        else:
+            # Fallback: Create a review record if assignment doesn't exist
+            review_collection = mongodb_service.get_collection('content_reviews')
+            review_doc = {
+                "content_id": content_id,
+                "audio_id": content_id,
                 "status": request.status,
-                "notes": request.notes,
-                "updatedAt": datetime.utcnow().isoformat()
+                "status_notes": request.notes,
+                "status_updated_by": user_id,
+                "status_updated_at": datetime.utcnow(),
+                "created_at": datetime.utcnow()
             }
-        }
+            review_collection.insert_one(review_doc)
+            
+            return {
+                "success": True,
+                "message": "Content status updated successfully",
+                "data": {
+                    "contentId": content_id,
+                    "status": request.status,
+                    "notes": request.notes,
+                    "updatedAt": datetime.utcnow().isoformat()
+                }
+            }
         
     except HTTPException:
         raise
