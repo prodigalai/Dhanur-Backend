@@ -6,7 +6,7 @@ Handles content review, comments, team collaboration, and analytics
 
 from fastapi import APIRouter, HTTPException, Depends, Request, Query, UploadFile, File, Form
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from typing import Optional, Dict, Any, List
 import logging
 from datetime import datetime, timedelta
@@ -86,16 +86,29 @@ class CommentRequest(BaseModel):
     """Comment request model."""
     content: str = Field(..., min_length=1, max_length=1000)
     timestamp: Optional[str] = None
-    timeInSeconds: Optional[int] = None
-    type: str = Field(default="feedback", description="Type: feedback, suggestion, question")
+    timeInSeconds: Optional[float] = None
+    type: str = Field(default="feedback", description="Type: feedback, suggestion, question, praise")
     parentId: Optional[str] = None
+    
+    @validator('type')
+    def validate_type(cls, v):
+        allowed_types = ['feedback', 'suggestion', 'question', 'praise']
+        if v not in allowed_types:
+            raise ValueError(f'Type must be one of: {", ".join(allowed_types)}')
+        return v
+    # Timeline selection features
+    startTime: Optional[float] = Field(None, description="Start time in seconds for timeline selection")
+    endTime: Optional[float] = Field(None, description="End time in seconds for timeline selection")
+    selectionType: Optional[str] = Field("text", description="Selection type: text, drag_drop, marker")
+    markerPosition: Optional[float] = Field(None, description="Marker position in seconds")
+    version: Optional[str] = Field(None, description="Content version for versioning")
 
 class CommentResponse(BaseModel):
     """Comment response model."""
     id: str
     content: str
     timestamp: Optional[str] = None
-    timeInSeconds: Optional[int] = None
+    timeInSeconds: Optional[float] = None
     type: str
     parentId: Optional[str] = None
     authorId: str
@@ -105,31 +118,19 @@ class CommentResponse(BaseModel):
     resolved: bool = False
     createdAt: str
     updatedAt: str
+    # Timeline selection features
+    startTime: Optional[float] = None
+    endTime: Optional[float] = None
+    selectionType: Optional[str] = None
+    markerPosition: Optional[float] = None
+    version: Optional[str] = None
 
 class StatusUpdateRequest(BaseModel):
     """Status update request model."""
     status: str = Field(..., description="Status: pending, approved, needs_revision, rejected")
     notes: Optional[str] = None
 
-class ChatMessageRequest(BaseModel):
-    """Chat message request model."""
-    content: str = Field(..., min_length=1, max_length=1000)
-    contentId: Optional[str] = None
-    brandId: Optional[str] = None
-    campaignId: Optional[str] = None
-    type: str = Field(default="general", description="Type: general, content_specific")
-
-class ChatMessageResponse(BaseModel):
-    """Chat message response model."""
-    id: str
-    content: str
-    contentId: Optional[str] = None
-    type: str
-    authorId: str
-    authorName: str
-    authorAvatar: Optional[str] = None
-    createdAt: str
-    updatedAt: str
+# Chat system removed as per requirements - using comments only
 
 class NotificationResponse(BaseModel):
     """Notification response model."""
@@ -565,6 +566,12 @@ async def get_content_comments(
                 "authorId": comment["author_id"],
                 "authorName": comment.get("author_name", "Unknown"),
                 "authorAvatar": comment.get("author_avatar"),
+                # Timeline selection features
+                "startTime": comment.get("start_time"),
+                "endTime": comment.get("end_time"),
+                "selectionType": comment.get("selection_type"),
+                "markerPosition": comment.get("marker_position"),
+                "version": comment.get("version"),
                 "likes": comment.get("likes", 0),
                 "resolved": comment.get("resolved", False),
                 "createdAt": comment["created_at"].isoformat(),
@@ -609,7 +616,13 @@ async def add_comment(
             "likes": 0,
             "resolved": False,
             "created_at": datetime.utcnow(),
-            "updated_at": datetime.utcnow()
+            "updated_at": datetime.utcnow(),
+            # Timeline selection features
+            "start_time": request.startTime,
+            "end_time": request.endTime,
+            "selection_type": request.selectionType,
+            "marker_position": request.markerPosition,
+            "version": request.version
         }
         
         # Save comment
@@ -639,7 +652,13 @@ async def add_comment(
                 "likes": 0,
                 "resolved": False,
                 "createdAt": datetime.utcnow().isoformat(),
-                "updatedAt": datetime.utcnow().isoformat()
+                "updatedAt": datetime.utcnow().isoformat(),
+                # Timeline selection features
+                "startTime": request.startTime,
+                "endTime": request.endTime,
+                "selectionType": request.selectionType,
+                "markerPosition": request.markerPosition,
+                "version": request.version
             }
         }
         
@@ -812,121 +831,146 @@ async def unlike_comment(
         raise HTTPException(status_code=500, detail=f"Failed to unlike comment: {str(e)}")
 
 # ============================================================================
-# TEAM CHAT APIs
+# CHAT SYSTEM REMOVED - Using comments only as per requirements
 # ============================================================================
 
-@router.get("/chat", response_model=Dict[str, Any])
-async def get_team_messages(
-    content_id: Optional[str] = Query(None, description="Filter by content ID"),
-    brand_id: Optional[str] = Query(None, description="Filter by brand ID"),
-    campaign_id: Optional[str] = Query(None, description="Filter by campaign ID"),
-    page: int = Query(1, ge=1, description="Page number"),
-    limit: int = Query(50, ge=1, le=100, description="Items per page"),
+# ============================================================================
+# VERSIONING APIs
+# ============================================================================
+
+@router.get("/content/{content_id}/versions", response_model=Dict[str, Any])
+async def get_content_versions(
+    content_id: str,
     current_user: dict = Depends(get_current_user)
 ):
-    """Get team chat messages."""
+    """Get all versions of content."""
     try:
-        user_id = current_user.get('user_id', current_user.get('id', 'unknown'))
+        # Get versions from content_reviews collection
+        content_collection = mongodb_service.get_collection('content_reviews')
+        versions = list(content_collection.find(
+            {"content_id": content_id}
+        ).sort("created_at", -1))
         
-        # Build query - prioritize content_id if provided
-        query = {}
-        if content_id:
-            query["content_id"] = content_id
-        # Optional filters - only add if content_id is not provided
-        elif brand_id or campaign_id:
-            if brand_id:
-                query["brand_id"] = brand_id
-            if campaign_id:
-                query["campaign_id"] = campaign_id
-        
-        # Get messages from database
-        chat_collection = mongodb_service.get_collection('team_chat')
-        skip = (page - 1) * limit
-        
-        messages = list(chat_collection.find(query).sort("created_at", -1).skip(skip).limit(limit))
-        total = chat_collection.count_documents(query)
-        
-        # Format response
-        formatted_messages = []
-        for message in messages:
-            formatted_messages.append({
-                "id": message["message_id"],
-                "content": message["content"],
-                "contentId": message.get("content_id"),
-                "type": message.get("type", "general"),
-                "authorId": message["author_id"],
-                "authorName": message.get("author_name", "Unknown"),
-                "authorAvatar": message.get("author_avatar"),
-                "createdAt": message["created_at"].isoformat(),
-                "updatedAt": message.get("updated_at", message["created_at"]).isoformat()
+        formatted_versions = []
+        for version in versions:
+            formatted_versions.append({
+                "version": version.get("version", "1.0"),
+                "status": version.get("status", "pending"),
+                "createdAt": version["created_at"].isoformat(),
+                "createdBy": version.get("uploaded_by"),
+                "notes": version.get("status_notes"),
+                "comments": version.get("comments", 0),
+                "likes": version.get("likes", 0)
             })
         
         return {
             "success": True,
             "data": {
-                "messages": formatted_messages,
-                "pagination": {
-                    "page": page,
-                    "limit": limit,
-                    "total": total,
-                    "totalPages": (total + limit - 1) // limit
-                }
+                "contentId": content_id,
+                "versions": formatted_versions,
+                "totalVersions": len(formatted_versions)
             }
         }
         
     except Exception as e:
-        logger.error(f"Error getting team messages: {e}")
-        raise HTTPException(status_code=500, detail=f"Failed to get team messages: {str(e)}")
+        logger.error(f"Error getting content versions: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get versions: {str(e)}")
 
-@router.post("/chat", response_model=Dict[str, Any])
-async def send_team_message(
-    request: ChatMessageRequest,
+@router.post("/content/{content_id}/versions", response_model=Dict[str, Any])
+async def create_content_version(
+    content_id: str,
+    version: str = Query(..., description="Version number (e.g., 1.1, 2.0)"),
+    notes: Optional[str] = Query(None, description="Version notes"),
     current_user: dict = Depends(get_current_user)
 ):
-    """Send a team chat message."""
+    """Create a new version of content."""
     try:
         user_id = current_user.get('user_id', current_user.get('id', 'unknown'))
-        user_name = current_user.get('name', current_user.get('email', 'Unknown'))
         
-        # Create message
-        message_id = str(uuid.uuid4())
-        message_doc = {
-            "message_id": message_id,
-            "content": request.content,
-            "content_id": request.contentId,
-            "brand_id": request.brandId,
-            "campaign_id": request.campaignId,
-            "type": request.type,
-            "author_id": user_id,
-            "author_name": user_name,
-            "author_avatar": current_user.get('avatar'),
+        # Create new version document
+        version_doc = {
+            "content_id": content_id,
+            "version": version,
+            "status": "pending",
+            "status_notes": notes,
+            "uploaded_by": user_id,
             "created_at": datetime.utcnow(),
-            "updated_at": datetime.utcnow()
+            "updated_at": datetime.utcnow(),
+            "comments": 0,
+            "likes": 0,
+            "views": 0
         }
         
-        # Save message
-        chat_collection = mongodb_service.get_collection('team_chat')
-        chat_collection.insert_one(message_doc)
+        # Save version
+        content_collection = mongodb_service.get_collection('content_reviews')
+        content_collection.insert_one(version_doc)
         
         return {
             "success": True,
-            "message": "Message sent successfully",
+            "message": f"Version {version} created successfully",
             "data": {
-                "id": message_id,
-                "content": request.content,
-                "contentId": request.contentId,
-                "type": request.type,
-                "authorId": user_id,
-                "authorName": user_name,
-                "authorAvatar": current_user.get('avatar'),
-                "createdAt": datetime.utcnow().isoformat(),
-                "updatedAt": datetime.utcnow().isoformat()
+                "contentId": content_id,
+                "version": version,
+                "status": "pending",
+                "createdAt": datetime.utcnow().isoformat()
             }
         }
         
     except Exception as e:
-        logger.error(f"Error sending team message: {e}")
-        raise HTTPException(status_code=500, detail=f"Failed to send message: {str(e)}")
+        logger.error(f"Error creating content version: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to create version: {str(e)}")
+
+@router.get("/content/{content_id}/versions/{version}/comments", response_model=Dict[str, Any])
+async def get_version_comments(
+    content_id: str,
+    version: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Get comments for a specific version."""
+    try:
+        # Get comments for specific version
+        comments_collection = mongodb_service.get_collection('content_comments')
+        comments = list(comments_collection.find({
+            "content_id": content_id,
+            "version": version
+        }).sort("created_at", -1))
+        
+        formatted_comments = []
+        for comment in comments:
+            formatted_comments.append({
+                "id": comment["comment_id"],
+                "content": comment["content"],
+                "timestamp": comment.get("timestamp"),
+                "timeInSeconds": comment.get("time_in_seconds"),
+                "type": comment.get("type", "feedback"),
+                "parentId": comment.get("parent_id"),
+                "authorId": comment["author_id"],
+                "authorName": comment.get("author_name", "Unknown"),
+                "authorAvatar": comment.get("author_avatar"),
+                "startTime": comment.get("start_time"),
+                "endTime": comment.get("end_time"),
+                "selectionType": comment.get("selection_type"),
+                "markerPosition": comment.get("marker_position"),
+                "version": comment.get("version"),
+                "likes": comment.get("likes", 0),
+                "resolved": comment.get("resolved", False),
+                "createdAt": comment["created_at"].isoformat(),
+                "updatedAt": comment.get("updated_at", comment["created_at"]).isoformat()
+            })
+        
+        return {
+            "success": True,
+            "data": {
+                "contentId": content_id,
+                "version": version,
+                "comments": formatted_comments,
+                "totalComments": len(formatted_comments)
+            }
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting version comments: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get version comments: {str(e)}")
 
 # ============================================================================
 # NOTIFICATIONS APIs
