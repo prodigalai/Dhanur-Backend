@@ -247,3 +247,4 @@ Issues ho to batao:
 **Key Point:** Frontend ko bas `/capabilities` endpoint call karke `ui_hints` use karni hai. Saare permissions backend se automatically aayenge! 🎯
 
 
+
