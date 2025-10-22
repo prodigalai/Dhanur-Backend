@@ -30,8 +30,13 @@ venv.bak/
 
 # Environment variables
 .env
+.env.*
 .env.local
 .env.production.local
+.env.backup
+env.production
+env.spotify
+*.env
 
 # IDE
 .vscode/
