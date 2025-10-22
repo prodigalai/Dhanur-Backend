@@ -1,0 +1,32 @@
+{
+    "$schema": "https://example.com/registries/v1/platforms.registry.schema.json",
+    "registry": "platforms",
+    "version": "1.0.0",
+    "updated_at": "",
+    "items": {
+        "youtube": {},
+        "quora": {},
+        "mastadon": {},
+        "bluesky": {},
+        "medium": {},
+        "tumblr": {},
+        "rumble": {},
+        "odysee": {},
+        "pinterest": {},
+        "reddit": {},
+        "spotify": {},
+        "instagram": {},
+        "facebook": {},
+        "twitter": {},
+        "discord": {},
+        "threads": {},
+        "discourse": {},
+        "flipboard": {},
+        "linkedin": {},
+        "snapchat": {},
+        "whatsapp": {},
+        "telegram": {},
+        "fermion_blogs": {},
+        "fermion_newsletters": {}
+    }
+}

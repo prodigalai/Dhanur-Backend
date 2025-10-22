@@ -1,0 +1,13 @@
+{
+    "unified_fields": {
+        "title": "snippet.title",
+        "description": "snippet.description",
+        "tags": "snippet.tags",
+        "privacy": "status.privacyStatus"
+    },
+    "privacy_values": {
+        "public": "public",
+        "unlisted": "unlisted",
+        "private": "private"
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "roles": {
+        "VIEWER": {
+            "allows": [
+                "profile_read"
+            ],
+            "scopes": [
+                "read_only"
+            ]
+        },
+        "UPLOADER": {
+            "allows": [
+                "profile_read",
+                "posts_create"
+            ],
+            "scopes": [
+                "post"
+            ]
+        },
+        "EDITOR": {
+            "allows": [
+                "profile_read",
+                "posts_create",
+                "posts_update"
+            ],
+            "scopes": [
+                "manage"
+            ]
+        },
+        "ADMIN": {
+            "allows": [
+                "profile_read",
+                "posts_create",
+                "posts_update",
+                "posts_delete",
+                "posts_list"
+            ],
+            "scopes": [
+                "manage",
+                "post",
+                "force_ssl"
+            ]
+        },
+        "OWNER": {
+            "allows": [
+                "profile_read",
+                "posts_create",
+                "posts_update",
+                "posts_delete",
+                "posts_list"
+            ],
+            "scopes": [
+                "manage",
+                "post",
+                "force_ssl"
+            ]
+        }
+    }
+}

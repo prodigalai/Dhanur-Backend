@@ -1,0 +1,11 @@
+{
+    "id": "youtube",
+    "label": "YouTube",
+    "registry": "platform",
+    "versions": [
+        "v1"
+    ],
+    "latest": "v1",
+    "generated_at": "2025-08-18T00:00:00Z",
+    "notes": "Wrapper version v1 maps to Google YouTube Data API v3."
+}

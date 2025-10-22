@@ -1,0 +1,185 @@
+{
+    "version": "v1",
+    "operations": {
+        "channels_list_mine": {
+            "kind": "read",
+            "resource": "channels",
+            "method": "list",
+            "params": {
+                "mine": true,
+                "part": [
+                    "snippet",
+                    "contentDetails",
+                    "statistics"
+                ]
+            },
+            "required_scopes": [
+                "read_only"
+            ],
+            "quota_cost": 1
+        },
+        "channels_update": {
+            "kind": "youtube#channel",
+            "resource": "channels",
+            "method": "update",
+            "params": {
+                "part": ["snippet", "brandingSettings", "localizations"]
+            },
+            "required_scopes": ["youtube", "youtube.force-ssl"],
+            "quota_cost": 50
+        },
+        "channel_banners_insert": {
+            "kind": "youtube#channelBannerResource",
+            "resource": "channelBanners",
+            "method": "insert",
+            "params": {},
+            "required_scopes": ["youtube.upload"],
+            "quota_cost": 50
+        },
+        "watermarks_set": {
+            "kind": "youtube#watermarkResource",
+            "resource": "watermarks",
+            "method": "set",
+            "params": {
+                "channelId": "string"
+            },
+            "required_scopes": ["youtube.upload"],
+            "quota_cost": 50
+        },
+        "watermarks_unset": {
+            "kind": "youtube#watermarkResource",
+            "resource": "watermarks",
+            "method": "unset",
+            "params": {
+                "channelId": "string"
+            },
+            "required_scopes": ["youtube.upload"],
+            "quota_cost": 50
+        },
+        "channel_sections_list": {
+            "kind": "youtube#channelSectionListResponse",
+            "resource": "channelSections",
+            "method": "list",
+            "params": {
+                "channelId": "string",
+                "part": ["snippet", "contentDetails"]
+            },
+            "required_scopes": ["youtube.readonly"],
+            "quota_cost": 1
+        },
+        "channel_sections_insert": {
+            "kind": "youtube#channelSection",
+            "resource": "channelSections",
+            "method": "insert",
+            "params": {
+                "part": ["snippet", "contentDetails"]
+            },
+            "required_scopes": ["youtube", "youtube.force-ssl"],
+            "quota_cost": 50
+        },
+        "channel_sections_update": {
+            "kind": "youtube#channelSection",
+            "resource": "channelSections",
+            "method": "update",
+            "params": {
+                "part": ["snippet", "contentDetails"]
+            },
+            "required_scopes": ["youtube", "youtube.force-ssl"],
+            "quota_cost": 50
+        },
+        "channel_sections_delete": {
+            "kind": "youtube#channelSection",
+            "resource": "channelSections",
+            "method": "delete",
+            "params": {
+                "id": "string"
+            },
+            "required_scopes": ["youtube", "youtube.force-ssl"],
+            "quota_cost": 50
+        },
+        "videos_insert": {
+            "kind": "create",
+            "resource": "videos",
+            "method": "insert",
+            "params": {
+                "part": [
+                    "snippet",
+                    "status"
+                ]
+            },
+            "media": true,
+            "required_scopes": [
+                "upload"
+            ],
+            "quota_cost": 1600
+        },
+        "videos_update": {
+            "kind": "update",
+            "resource": "videos",
+            "method": "update",
+            "params": {
+                "part": [
+                    "snippet",
+                    "status"
+                ]
+            },
+            "required_scopes": [
+                "manage"
+            ],
+            "quota_cost": 50
+        },
+        "videos_delete": {
+            "kind": "delete",
+            "resource": "videos",
+            "method": "delete",
+            "params": {},
+            "required_scopes": [
+                "manage"
+            ],
+            "quota_cost": 50
+        },
+        "playlists_insert": {
+            "kind": "create",
+            "resource": "playlists",
+            "method": "insert",
+            "params": {
+                "part": [
+                    "snippet",
+                    "status"
+                ]
+            },
+            "required_scopes": [
+                "manage"
+            ],
+            "quota_cost": 50
+        },
+        "playlistItems_insert": {
+            "kind": "create",
+            "resource": "playlistItems",
+            "method": "insert",
+            "params": {
+                "part": [
+                    "snippet"
+                ]
+            },
+            "required_scopes": [
+                "manage"
+            ],
+            "quota_cost": 50
+        },
+        "comments_insert": {
+            "kind": "create",
+            "resource": "comments",
+            "method": "insert",
+            "params": {
+                "part": [
+                    "snippet"
+                ]
+            },
+            "required_scopes": [
+                "force_ssl"
+            ],
+            "quota_cost": 50
+        }
+    }
+}

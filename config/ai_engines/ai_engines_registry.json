@@ -1,0 +1,17 @@
+{
+    "$schema": "https://example.com/registries/v1/platforms.registry.schema.json",
+    "registry": "ai_engines",
+    "version": "1.0.0",
+    "updated_at": "",
+    "items": {
+        "podcast": {},
+        "blogging": {},
+        "newsletter": {},
+        "song": {},
+        "movie": {},
+        "comicbook": {},
+        "storybook": {},
+        "novel": {},
+        "technicalbook": {}
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "read_only": [
+        "https://www.googleapis.com/auth/youtube.readonly"
+    ],
+    "manage": [
+        "https://www.googleapis.com/auth/youtube"
+    ],
+    "upload": [
+        "https://www.googleapis.com/auth/youtube.upload"
+    ],
+    "force_ssl": [
+        "https://www.googleapis.com/auth/youtube.force-ssl"
+    ]
+}

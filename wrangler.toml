@@ -1,0 +1,18 @@
+name = "content-crew-api"
+main = "worker.py"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["python_workers"]
+
+[env.production]
+name = "content-crew-api-prod"
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+name = "content-crew-api-staging"
+vars = { ENVIRONMENT = "staging" }
+
+[build]
+command = "pip install -r requirements.txt"
+
+# Using workers.dev subdomain (no custom domain needed)
+workers_dev = true

@@ -1,0 +1,38 @@
+{
+  "base_url": "https://api.linkedin.com/v2",
+  "oauth": {
+    "authorize_url": "https://www.linkedin.com/oauth/v2/authorization",
+    "token_url": "https://www.linkedin.com/oauth/v2/accessToken",
+    "scope": "openid profile email w_member_social"
+  },
+  "endpoints": {
+    "profile": {
+      "get": "/me",
+      "method": "GET"
+    },
+    "posts": {
+      "create": "/ugcPosts",
+      "method": "POST",
+      "headers": {
+        "X-Restli-Protocol-Version": "2.0.0",
+        "Content-Type": "application/json"
+      }
+    },
+    "posts_update": {
+      "update": "/ugcPosts/{id}",
+      "method": "PUT",
+      "headers": {
+        "X-Restli-Protocol-Version": "2.0.0",
+        "Content-Type": "application/json"
+      }
+    },
+    "posts_delete": {
+      "delete": "/ugcPosts/{id}",
+      "method": "DELETE"
+    },
+    "posts_list": {
+      "list": "/ugcPosts",
+      "method": "GET"
+    }
+  }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Crew Prodigal API Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .api-section {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .response {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.success { background: #4CAF50; }
+        .status.error { background: #f44336; }
+        .status.info { background: #2196F3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Content Crew Prodigal API Test</h1>
+        
+        <div class="api-section">
+            <h2>🔐 Authentication</h2>
+            
+            <div class="form-group">
+                <label for="apiUrl">API Base URL:</label>
+                <input type="text" id="apiUrl" value="https://your-api-url.workers.dev" placeholder="Enter your API URL">
+            </div>
+            
+            <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" value="ashwininagargoje703@gmail.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" value="your-password">
+            </div>
+            
+            <button onclick="testLogin()">🔑 Test Login</button>
+            <div id="loginResponse" class="response" style="display: none;"></div>
+        </div>
+        
+        <div class="api-section">
+            <h2>📊 Health Check</h2>
+            <button onclick="testHealth()">🏥 Test Health</button>
+            <div id="healthResponse" class="response" style="display: none;"></div>
+        </div>
+        
+        <div class="api-section">
+            <h2>🔍 API Documentation</h2>
+            <button onclick="openDocs()">📚 Open API Docs</button>
+        </div>
+        
+        <div class="api-section">
+            <h2>📝 Test Results</h2>
+            <div id="testResults"></div>
+        </div>
+    </div>
+
+    <script>
+        let authToken = null;
+        
+        async function testLogin() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            try {
+                const response = await fetch(`${apiUrl}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                const responseDiv = document.getElementById('loginResponse');
+                
+                if (response.ok) {
+                    authToken = data.access_token;
+                    responseDiv.innerHTML = `<span class="status success">SUCCESS ${response.status}</span>\n${JSON.stringify(data, null, 2)}`;
+                    addTestResult('Login', 'SUCCESS', response.status);
+                } else {
+                    responseDiv.innerHTML = `<span class="status error">ERROR ${response.status}</span>\n${JSON.stringify(data, null, 2)}`;
+                    addTestResult('Login', 'ERROR', response.status);
+                }
+                
+                responseDiv.style.display = 'block';
+            } catch (error) {
+                const responseDiv = document.getElementById('loginResponse');
+                responseDiv.innerHTML = `<span class="status error">NETWORK ERROR</span>\n${error.message}`;
+                responseDiv.style.display = 'block';
+                addTestResult('Login', 'NETWORK ERROR', 'N/A');
+            }
+        }
+        
+        async function testHealth() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            
+            try {
+                const response = await fetch(`${apiUrl}/health`);
+                const data = await response.json();
+                const responseDiv = document.getElementById('healthResponse');
+                
+                if (response.ok) {
+                    responseDiv.innerHTML = `<span class="status success">SUCCESS ${response.status}</span>\n${JSON.stringify(data, null, 2)}`;
+                    addTestResult('Health Check', 'SUCCESS', response.status);
+                } else {
+                    responseDiv.innerHTML = `<span class="status error">ERROR ${response.status}</span>\n${JSON.stringify(data, null, 2)}`;
+                    addTestResult('Health Check', 'ERROR', response.status);
+                }
+                
+                responseDiv.style.display = 'block';
+            } catch (error) {
+                const responseDiv = document.getElementById('healthResponse');
+                responseDiv.innerHTML = `<span class="status error">NETWORK ERROR</span>\n${error.message}`;
+                responseDiv.style.display = 'block';
+                addTestResult('Health Check', 'NETWORK ERROR', 'N/A');
+            }
+        }
+        
+        function openDocs() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            window.open(`${apiUrl}/docs`, '_blank');
+        }
+        
+        function addTestResult(test, status, code) {
+            const resultsDiv = document.getElementById('testResults');
+            const timestamp = new Date().toLocaleTimeString();
+            const statusClass = status === 'SUCCESS' ? 'success' : status === 'ERROR' ? 'error' : 'info';
+            
+            resultsDiv.innerHTML += `
+                <div style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                    <strong>${test}</strong> - 
+                    <span class="status ${statusClass}">${status}</span> 
+                    (${code}) - ${timestamp}
+                </div>
+            `;
+        }
+        
+        // Auto-test on load
+        window.onload = function() {
+            addTestResult('Page Loaded', 'INFO', 'Ready');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "oauth": {
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "revoke_uri": "https://oauth2.googleapis.com/revoke"
+    },
+    "api": {
+        "discovery_service_name": "youtube",
+        "discovery_version": "v3",
+        "base_url": "https://www.googleapis.com/youtube/v3"
+    }
+}

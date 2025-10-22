@@ -1,0 +1,30 @@
+{
+  "name": "content-crew-api",
+  "version": "1.0.0",
+  "description": "Content Crew Prodigal API - Cloudflare Workers Ready",
+  "main": "main-cloudflare.py",
+  "scripts": {
+    "start": "python main-cloudflare.py",
+    "dev": "wrangler dev",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:production": "wrangler deploy --env production",
+    "build": "wrangler build",
+    "test": "wrangler test"
+  },
+  "keywords": [
+    "fastapi",
+    "cloudflare",
+    "workers",
+    "api",
+    "oauth",
+    "content-crew"
+  ],
+  "author": "Content Crew Team",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,30 @@
+# Spotify Analytics Cron Jobs
+# Add this to your crontab using: crontab -e
+
+# ===== HOURLY COLLECTION (Popularity & Basic Metrics) =====
+# Every hour, collect track popularity and basic analytics
+0 * * * * cd /Users/ash/codes/Content-Crew-Prodigal/content-crew && source venv/bin/activate && python3 scripts/spotify_analytics_cron.py --mode=hourly >> logs/spotify_hourly.log 2>&1
+
+# ===== 6-HOURLY COLLECTION (Artist & Playlist Analytics) =====
+# Every 6 hours, collect artist followers and playlist metrics
+0 */6 * * * * cd /Users/ash/codes/Content-Crew-Prodigal/content-crew && source venv/bin/activate && python3 scripts/spotify_analytics_cron.py --mode=six_hourly >> logs/spotify_six_hourly.log 2>&1
+
+# ===== DAILY COLLECTION (Audio Features & Analysis) =====
+# Every day at 2 AM, collect audio features and detailed analysis
+0 2 * * * cd /Users/ash/codes/Content-Crew-Prodigal/content-crew && source venv/bin/activate && python3 scripts/spotify_analytics_cron.py --mode=daily >> logs/spotify_daily.log 2>&1
+
+# ===== WEEKLY GROWTH CALCULATION =====
+# Every Sunday at 3 AM, calculate comprehensive growth metrics
+0 3 * * 0 cd /Users/ash/codes/Content-Crew-Prodigal/content-crew && source venv/bin/activate && python3 scripts/spotify_analytics_cron.py --mode=weekly >> logs/spotify_monthly.log 2>&1
+
+# ===== MONTHLY FULL COLLECTION =====
+# First day of every month at 4 AM, run full analytics collection
+0 4 1 * * cd /Users/ash/codes/Content-Crew-Prodigal/content-crew && source venv/bin/activate && python3 scripts/spotify_analytics_cron.py --mode=monthly >> logs/spotify_monthly.log 2>&1
+
+# ===== LOG ROTATION =====
+# Every week, rotate logs to prevent disk space issues
+0 5 * * 0 cd /Users/ash/codes/Content-Crew-Prodigal/content-crew && find logs/ -name "spotify_*.log" -mtime +7 -delete
+
+# ===== HEALTH CHECK =====
+# Every 15 minutes, check if analytics service is running
+*/15 * * * * cd /Users/ash/codes/Content-Crew-Prodigal/content-crew && curl -f https://dhanur-frontend-nu.vercel.app/api/v2/spotify-analytics/health > /dev/null 2>&1 || echo "Spotify Analytics service down at $(date)" >> logs/spotify_health.log

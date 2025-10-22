@@ -1,0 +1,2051 @@
+{
+    "$schema": "https://example.com/registries/v1/platforms.registry.schema.json",
+    "registry": "brands",
+    "version": "1.0.0",
+    "updated_at": "",
+    "items": {
+        "Mind_Machine_Mesh": {
+            "category": "AI",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@MindMachineMesh"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@MindMachineMesh"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Equity_Edge": {
+            "category": "Stocks",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@EquityEdge100"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@EquityEdge100"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Poonji_Pathshala": {
+            "category": "Stocks",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@PoonjiPathshala100"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@PoonjiPathshala100"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Khabar_Kona": {
+            "category": "Global_News",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@KhabarKona99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@KhabarKona99"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Sankalp_Shakti": {
+            "category": "Motivation",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@SankalpShakti77"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@SankalpShakti77"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Showbiz_Shine": {
+            "category": "Entertainment",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@ShowbizShine"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@ShowbizShine"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Style_Stride": {
+            "category": "Grooming_and_Fashion",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@StyleStride99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@StyleStride99"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Motivate_Mantra": {
+            "category": "Motivation",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@MotivateMantra100"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@MotivateMantra100"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Sweat_Success": {
+            "category": "Fitness",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@SweatSuccess99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@SweatSuccess99"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Chutkule_Champ": {
+            "category": "Memes",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@ChutkuleChamp99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "@ChutkuleChamp99"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Gizmo_Glow": {
+            "category": "Tech_and_Gadgets",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@GizmoGlow99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "gizmoglow"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Brainy_Bites": {
+            "category": "EdTech",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@BrainyBites77"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "brainybrites"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Gyan_Ganga": {
+            "category": "EdTech",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@GyanGangaEd"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "gyanganga"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Cartoon_Craft": {
+            "category": "Kids_and_Animation",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@CartoonCraft100"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "cartooncraft"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Glam_Gatha": {
+            "category": "Grooming_and_Fashion",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@GlamGatha100"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "glamgatha"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Yantra_Yatra": {
+            "category": "Tech_and_Gadgets",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@YantraYatra108"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "yantrayatra"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "World_Whispers": {
+            "category": "Global_News",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@WorldWhispers21"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "worldwhispers"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Swad_Sangam": {
+            "category": "Cooking",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@SwadSangam99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "swadsangam"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Savor_Spice": {
+            "category": "Cooking",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@SavorSpice"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "savorspice"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Haha_Hub": {
+            "category": "Memes",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@HahaHub101"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "haha__hub"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Nanhe_Natkhat": {
+            "category": "Kids_and_Animation",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@NanheNatkhat99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "nanhenatkhat"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Cinema_Chaska": {
+            "category": "Entertainment",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@CinemaChaska100"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "cinemachaska"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Yantra_Yog": {
+            "category": "AI",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@YantraYog108"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "yantrayog"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Khel_Tadka": {
+            "category": "Sports",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@KhelTadka99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "kheltadka"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Fit_Bharat": {
+            "category": "Fitness",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@FitBharat100"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "FitBharat"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        },
+        "Game_Glory": {
+            "category": "Sports",
+            "platformHandles": {
+                "youtube": {
+                    "id": "@GameGlory99"
+                },
+                "quora": {
+                    "id": ""
+                },
+                "mastadon": {
+                    "id": "GameGlory"
+                },
+                "bluesky": {
+                    "id": ""
+                },
+                "medium": {
+                    "id": ""
+                },
+                "tumblr": {
+                    "id": ""
+                },
+                "rumble": {
+                    "id": ""
+                },
+                "odysee": {
+                    "id": ""
+                },
+                "pinterest": {
+                    "id": ""
+                },
+                "reddit": {
+                    "id": ""
+                },
+                "spotify": {
+                    "id": ""
+                },
+                "instagram": {
+                    "id": ""
+                },
+                "facebook": {
+                    "id": ""
+                },
+                "twitter": {
+                    "id": ""
+                },
+                "discord": {
+                    "id": ""
+                },
+                "threads": {
+                    "id": ""
+                },
+                "discourse": {
+                    "id": ""
+                },
+                "flipboard": {
+                    "id": ""
+                },
+                "linkedin": {
+                    "id": ""
+                },
+                "snapchat": {
+                    "id": ""
+                },
+                "whatsapp": {
+                    "id": ""
+                },
+                "telegram": {
+                    "id": ""
+                },
+                "fermion_blogs": {
+                    "id": ""
+                },
+                "fermion_newsletters": {
+                    "id": ""
+                }
+            }
+        }
+    },
+    "categories": [
+        {
+            "id": "AI"
+        },
+        {
+            "id": "Stocks"
+        },
+        {
+            "id": "Global_News"
+        },
+        {
+            "id": "Motivation"
+        },
+        {
+            "id": "Entertainment"
+        },
+        {
+            "id": "Grooming_and_Fashion"
+        },
+        {
+            "id": "Fitness"
+        },
+        {
+            "id": "Memes"
+        },
+        {
+            "id": "Tech_and_Gadgets"
+        },
+        {
+            "id": "EdTech"
+        },
+        {
+            "id": "Kids_and_Animation"
+        },
+        {
+            "id": "Cooking"
+        },
+        {
+            "id": "Sports"
+        }
+    ]
+}

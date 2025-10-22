@@ -1,0 +1,268 @@
+version: '3.8'
+
+services:
+  # Redis Queue System
+  redis:
+    image: redis:7-alpine
+    container_name: ai-orchestration-redis-prod
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:7
+    container_name: ai-orchestration-mongodb-prod
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=content_crew
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+
+  # Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: ai-orchestration-backend-prod
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGODB_URL=mongodb://mongodb:27017/content_crew
+      - POSTGRES_URL=postgresql://postgres:password@postgres:5432/content_crew
+      - ENVIRONMENT=production
+    depends_on:
+      - redis
+      - mongodb
+    volumes:
+      - ./:/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+
+  # Chattrebox Model Container
+  chattrebox:
+    build:
+      context: ./models/chatterbox
+      dockerfile: Dockerfile
+    container_name: chattrebox-model-prod
+    ports:
+      - "8001:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MODEL_NAME=chattrebox
+      - GPU_ENABLED=true
+    volumes:
+      - ./models/chatterbox:/app
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # CosyVoice Model Container
+  cosyvoice:
+    build:
+      context: ./models/cosyvoice
+      dockerfile: Dockerfile
+    container_name: cosyvoice-model-prod
+    ports:
+      - "8002:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MODEL_NAME=cosyvoice
+      - GPU_ENABLED=true
+    volumes:
+      - ./models/cosyvoice:/app
+      - cosyvoice_hub_cache:/root/.cache/torch/hub
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # CosyVoice REAL (upstream engine)
+  cosyvoice-real:
+    build:
+      context: /home/prodigalai/projects/CosyVoice
+      dockerfile: Dockerfile
+    container_name: cosyvoice-real-prod
+    ports:
+      - "8009:8009"
+    environment:
+      - MODEL_NAME=cosyvoice-real
+      - GPU_ENABLED=true
+    volumes:
+      - /home/prodigalai/projects/CosyVoice:/app
+      - cosyvoice_model_cache:/root/.cache/modelscope
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8009/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 12G
+        reservations:
+          memory: 6G
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # VibeVoice Model Container
+  vibevoice:
+    build:
+      context: ./models/vibevoice
+      dockerfile: Dockerfile
+    container_name: vibevoice-model-prod
+    ports:
+      - "8003:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MODEL_NAME=vibevoice
+      - GPU_ENABLED=true
+    volumes:
+      - ./models/vibevoice:/app
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # Nginx Load Balancer
+  nginx:
+    image: nginx:alpine
+    container_name: ai-orchestration-nginx-prod
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - backend
+      - chattrebox
+      - cosyvoice
+      - vibevoice
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - ai-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+volumes:
+  redis_data:
+  mongodb_data:
+  cosyvoice_hub_cache:
+  cosyvoice_model_cache:
+
+networks:
+  ai-network:
+    driver: bridge

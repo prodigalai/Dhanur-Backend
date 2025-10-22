@@ -1,0 +1,68 @@
+{
+    "roles": {
+        "VIEWER": {
+            "allows": [
+                "channels_list_mine",
+                "channels_update"
+            ],
+            "scopes": [
+                "read_only"
+            ]
+        },
+        "UPLOADER": {
+            "allows": [
+                "channels_list_mine",
+                "videos_insert"
+            ],
+            "scopes": [
+                "upload"
+            ]
+        },
+        "EDITOR": {
+            "allows": [
+                "channels_list_mine",
+                "videos_update",
+                "playlists_insert",
+                "playlistItems_insert",
+                "channels_update"
+            ],
+            "scopes": [
+                "manage"
+            ]
+        },
+        "ADMIN": {
+            "allows": [
+                "channels_list_mine",
+                "videos_insert",
+                "videos_update",
+                "videos_delete",
+                "playlists_insert",
+                "playlistItems_insert",
+                "comments_insert",
+                "channels_update"
+            ],
+            "scopes": [
+                "manage",
+                "upload",
+                "force_ssl"
+            ]
+        },
+        "OWNER": {
+            "allows": [
+                "channels_list_mine",
+                "videos_insert",
+                "videos_update",
+                "videos_delete",
+                "playlists_insert",
+                "playlistItems_insert",
+                "comments_insert",
+                "channels_update"
+            ],
+            "scopes": [
+                "manage",
+                "upload",
+                "force_ssl"
+            ]
+        }
+    }
+}

@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  content-crew-api:
+    build: .
+    container_name: content-crew-api
+    ports:
+      - "8080:8080"
+    environment:
+      - FASTAPI_ENV=production
+      - PORT=8080
+      - HOST=0.0.0.0
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - content-crew-network
+
+  # Optional: Add PostgreSQL for production
+  # postgres:
+  #   image: postgres:15
+  #   container_name: content-crew-postgres
+  #   environment:
+  #     POSTGRES_DB: content_crew
+  #     POSTGRES_USER: content_crew_user
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
+  #   networks:
+  #     - content-crew-network
+
+  # Optional: Add MongoDB for production
+  # mongodb:
+  #   image: mongo:7
+  #   container_name: content-crew-mongodb
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: content_crew_user
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+  #     MONGO_INITDB_DATABASE: content_crew
+  #   volumes:
+  #     - mongodb_data:/data/db
+  #   ports:
+  #     - "27017:27017"
+  #   restart: unless-stopped
+  #   networks:
+  #     - content-crew-network
+
+networks:
+  content-crew-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  mongodb_data:

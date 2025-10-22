@@ -1,0 +1,3 @@
+{
+    "notes": "YouTube uses a quota system (units/day). Per-operation quota_cost hints are in spec/operations.json."
+}
